@@ -11,13 +11,7 @@ app.get("/", function(req, res){
     var agent = parser(req.headers['user-agent']);
     
     var operatingSystem = agent.getOS();
-    var device = agent.device.vendor;
-    var browser = agent.browser.name;
-    console.log("hello");
-    res.json({
-        "browser": browser,
-        "device": device,
-        "software": operatingSystem  
-    });
-    
+
+    res.end(JSON.stringify(operatingSystem));
+
 })
