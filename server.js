@@ -14,6 +14,6 @@ app.get("/", function(req, res){
 
     res.json({
         "browser": browser,
-        "software": operatingSystem,  
+        "software": operatingSystem  
     });
 })
