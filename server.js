@@ -9,7 +9,8 @@ app.listen(port || 8080, process.env.IP || "0.0.0.0", function(){
 
 app.get("/", function(req, res){
     var agent = parser(req.headers['user-agent']);
-    var operatingSystem = agent.os;
+    var operatingSystem = agent.os.name;
+    
     res.end(JSON.stringify(operatingSystem));
 
 });
