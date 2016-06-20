@@ -12,8 +12,13 @@ app.get("/", function(req, res){
     var osName = agent.os.name;
     var osVersion = agent.os.version;
     var operatingSystem = osName + " " + osVersion;
+    var browser = agent.browser.name;
+    
     JSON.stringify(operatingSystem);
+    JSON.stringify(browser);
+    
     res.json({
+        "browser": browser,
         "software": operatingSystem
     });
 
