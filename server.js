@@ -16,7 +16,10 @@ app.get("/", function(req, res){
     var operatingSystem = osName + " " + osVersion;
     var browser = agent.browser.name;
     var ipAddress = ip.address();
+    var locale = req.headers['accept-language'];
     
+    JSON.stringify(ipAddress);
+    JSON.stringify(locale);
     JSON.stringify(operatingSystem);
     JSON.stringify(browser);
     
