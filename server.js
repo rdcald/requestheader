@@ -1,5 +1,5 @@
 var express = require('express');
-var userAgent = require("ua-parser-js");
+var parser = require("ua-parser-js");
 var app = express();
 var port = process.env.PORT;
 
@@ -8,7 +8,7 @@ app.listen(port || 8080, process.env.IP || "0.0.0.0", function(){
 });
 
 app.get("/", function(req, res){
-    var agent = userAgent.parse(req.headers['user-agent']);
+    var agent = parser(req.headers['user-agent']);
     
     var operatingSystem = agent.getOS().toString();
     var device = agent.device.vendor.toString();
