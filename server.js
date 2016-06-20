@@ -10,10 +10,10 @@ app.listen(port || 8080, process.env.IP || "0.0.0.0", function(){
 app.get("/", function(req, res){
     var agent = parser(req.headers['user-agent']);
     
-    var operatingSystem = agent.getOS().toString();
-    var device = agent.device.vendor.toString();
-    var browser = agent.browser.name.toString();
-    
+    var operatingSystem = agent.getOS();
+    var device = agent.device.vendor;
+    var browser = agent.browser.name;
+    console.log("hello");
     res.json({
         "browser": browser,
         "device": device,
