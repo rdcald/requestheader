@@ -12,7 +12,7 @@ app.get("/", function(req, res){
     var operatingSystem = agent.os.toString();
     var device = agent.device.toString();
     var result = agent.getResult();
-    res.send(result);
+    res.json(result);
     res.json({
         "software": device + " " + operatingSystem,  
     });
