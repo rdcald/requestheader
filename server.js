@@ -1,5 +1,6 @@
 var express = require('express');
 var parser = require("ua-parser-js");
+var ip = require("ip");
 var app = express();
 var port = process.env.PORT;
 
@@ -13,22 +14,14 @@ app.get("/", function(req, res){
     var osName = agent.os.name;
     var osVersion = agent.os.version;
     var operatingSystem = osName + " " + osVersion;
-    
     var browser = agent.browser.name;
-    var device = agent.device.type;
-    
-    var vendor = agent.device.vendor;
-    var cpu = agent.cpu.architecture;
-    var system = vendor + " " + cpu;
+    var ipAddress = ip.address();
     
     JSON.stringify(operatingSystem);
     JSON.stringify(browser);
-    JSON.stringify(device);
-    JSON.stringify(system);
     
     res.json({
-        "device": device,
-        "system": system,
+        "ipaddress": ipAddress,
         "browser": browser,
         "software": operatingSystem
     });
