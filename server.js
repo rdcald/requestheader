@@ -10,8 +10,6 @@ app.listen(port || 8080, process.env.IP || "0.0.0.0", function(){
 app.get("/", function(req, res){
     var agent = userAgent.parse(req.headers['user-agent']);
     var operatingSystem = agent.os.toString();
-    var device = agent.getDevice();
-    res.send(JSON.stringify(device));
     res.json({
         "software": operatingSystem  
     });
