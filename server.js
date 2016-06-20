@@ -25,8 +25,9 @@ app.get("/", function(req, res){
     
     res.json({
         "ipaddress": ipAddress,
-        "browser": browser,
-        "software": operatingSystem
+        "language": locale,
+        "software": operatingSystem,
+        "browser": browser
     });
 
 });
